@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="pomodoroClock.css" />
+    <script src="./pomodoroClock.js"></script>
+    <title>Pomodoro Clock</title>
+  </head>
+  <body onload="timer()">
+    <div>
+      <h1 id="title">Pomodoro Clock</h1>
+    </div>
+    <div id="timer">
+      <p id="timer-mins"></p>
+      <p id="timer-secs"></p>
+    </div>
+    <p>Add a minute</p>
+    <button id="add-mins" onclick="addOneMinute()">Click me</button>
+  </body>
+</html>
