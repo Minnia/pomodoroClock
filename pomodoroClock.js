@@ -32,3 +32,7 @@ const timer = setInterval(() => {
 function addOneMinute() {
   minutesRemaining += 1;
 }
+
+function removeOneMinute() {
+  minutesRemaining -= 1;
+}
