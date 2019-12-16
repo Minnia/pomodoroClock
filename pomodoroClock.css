@@ -1,0 +1,24 @@
+body {
+  background-image: linear-gradient(
+    to right,
+    rgba(0, 128, 0, 0.774),
+    rgba(255, 255, 255, 0.151)
+  );
+  text-align: center;
+  margin-top: 15%;
+  font-family: "Courier Prime", monospace;
+}
+
+.countdown {
+  font-size: 25px;
+}
+
+#add-mins {
+  border: none;
+  color: white;
+  background-color: black;
+  font-size: 16px;
+  display: inline-block;
+  padding: 15px 32px;
+  font-family: "Courier Prime", monospace;
+}
