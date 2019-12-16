@@ -7,3 +7,4 @@
 ## How to use?
 
 - Open pomodoroClock.html and the timer will start on load of the window
+- To add another minute to the clock, click the button!
