@@ -1,33 +1,40 @@
 const MS_TO_MINUTE = 60000;
 const getEndDate = minutes => new Date().getTime() + MS_TO_MINUTE * minutes;
-const endDate = getEndDate(25);
+const endDate = getEndDate(0.1);
 let now = new Date();
 let totalTimeRemaining = endDate - now;
 let minutesRemaining = Math.floor(
   (totalTimeRemaining % (1000 * 60 * 60)) / (1000 * 60)
 );
+
 let secondsRemaining = Math.floor((totalTimeRemaining % (1000 * 60)) / 1000);
 
-const timer = setInterval(() => {
-  if (secondsRemaining === 0) {
-    minutesRemaining--;
-    secondsRemaining = 60;
-  }
+let timer = undefined;
 
-  if (totalTimeRemaining >= 0) {
-    minutesRemaining;
-    secondsRemaining--;
-    document.getElementById("timer-mins").innerHTML = (
-      "0" + minutesRemaining
-    ).slice(-2);
+function startTimer() {
+  if (timer === undefined) {
+    timer = setInterval(() => {
+      let timesUp = totalTimeRemaining == 0;
+      document.getElementById("paused").innerHTML = "";
+      if (secondsRemaining === 0) {
+        minutesRemaining--;
+        secondsRemaining = 60;
+      }
 
-    document.getElementById("timer-secs").innerHTML = (
-      "0" + secondsRemaining
-    ).slice(-2);
-  } else {
-    document.getElementById("timer").innerHTML = "The countdown is over!";
+      if (totalTimeRemaining > 0) {
+        minutesRemaining;
+        secondsRemaining--;
+        totalTimeRemaining = totalTimeRemaining - 1000;
+        document.getElementById("timer-mins").innerHTML = minutesRemaining;
+        document.getElementById("timer-secs").innerHTML = secondsRemaining;
+      }
+      if (timesUp) {
+        pauseTimer();
+      }
+    }, 250);
   }
-}, 1000);
+  return;
+}
 
 function addOneMinute() {
   minutesRemaining += 1;
@@ -35,4 +42,10 @@ function addOneMinute() {
 
 function removeOneMinute() {
   minutesRemaining -= 1;
+}
+
+function pauseTimer() {
+  document.getElementById("paused").innerHTML = "Paused";
+  clearInterval(timer);
+  timer = undefined;
 }

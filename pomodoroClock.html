@@ -12,7 +12,7 @@
     <script src="./pomodoroClock.js"></script>
     <title>Pomodoro Clock</title>
   </head>
-  <body onload="timer()">
+  <body onload="startTimer()">
     <div>
       <h1 id="title">Pomodoro Clock</h1>
     </div>
@@ -23,7 +23,10 @@
         <span id="timer-secs" class="countdown"></span>
       </div>
     </div>
+    <p id="paused"></p>
     <button id="add-mins" onclick="addOneMinute()">Another minute?</button>
     <button id="remove-mins" onclick="removeOneMinute()">Decrease?</button>
+    <button id="done" onclick="pauseTimer()">Pause?</button>
+    <button id="start" onclick="startTimer()">Start?</button>
   </body>
 </html>
