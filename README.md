@@ -7,7 +7,8 @@
 ## How to use?
 
 - Open pomodoroClock.html and the timer will start on load of the window
-- To add another minute to the clock, click the button "Another minute?"
-- To remove a minute from the clock, click the button "Decrease?"
-- To pause the clock, click "Pause?"
-- To continue from where you paused, click "Start?"
+- To add another minute to the clock, click the button "Another minute"
+- To remove a minute from the clock, click the button "Decrease"
+- To pause the clock, click "Pause"
+- To continue from where you paused, click "Start"
+- To restart the Pomodoro clock, click "Restart"
