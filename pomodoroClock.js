@@ -1,13 +1,13 @@
 const MS_TO_MINUTE = 60000;
 const getEndDate = minutes => new Date().getTime() + MS_TO_MINUTE * minutes;
-const endDate = getEndDate(0.1);
+const endDate = getEndDate(25);
 let now = new Date();
 let totalTimeRemaining = endDate - now;
-let minutesRemaining = Math.floor(
-  (totalTimeRemaining % (1000 * 60 * 60)) / (1000 * 60)
-);
+const minutesRemaining = () =>
+  Math.floor((totalTimeRemaining % (1000 * 60 * 60)) / (1000 * 60));
 
-let secondsRemaining = Math.floor((totalTimeRemaining % (1000 * 60)) / 1000);
+const secondsRemaining = () =>
+  Math.floor((totalTimeRemaining % (1000 * 60)) / 1000);
 
 let timer = undefined;
 
@@ -16,36 +16,37 @@ function startTimer() {
     timer = setInterval(() => {
       let timesUp = totalTimeRemaining == 0;
       document.getElementById("paused").innerHTML = "";
-      if (secondsRemaining === 0) {
-        minutesRemaining--;
-        secondsRemaining = 60;
-      }
 
       if (totalTimeRemaining > 0) {
-        minutesRemaining;
-        secondsRemaining--;
         totalTimeRemaining = totalTimeRemaining - 1000;
-        document.getElementById("timer-mins").innerHTML = minutesRemaining;
-        document.getElementById("timer-secs").innerHTML = secondsRemaining;
+        document.getElementById("timer-mins").innerHTML = minutesRemaining();
+        document.getElementById("timer-secs").innerHTML = secondsRemaining();
       }
       if (timesUp) {
         pauseTimer();
       }
-    }, 250);
+    }, 1000);
   }
   return;
 }
 
-function addOneMinute() {
-  minutesRemaining += 1;
-}
+const addOneMinute = () => {
+  totalTimeRemaining += MS_TO_MINUTE;
+};
 
-function removeOneMinute() {
-  minutesRemaining -= 1;
-}
+const removeOneMinute = () => {
+  totalTimeRemaining -= MS_TO_MINUTE;
+};
 
-function pauseTimer() {
+const pauseTimer = () => {
   document.getElementById("paused").innerHTML = "Paused";
   clearInterval(timer);
   timer = undefined;
-}
+};
+
+const restartTimer = () => {
+  clearInterval(timer);
+  totalTimeRemaining = getEndDate(25) - new Date();
+  timer = undefined;
+  startTimer();
+};

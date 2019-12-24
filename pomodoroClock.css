@@ -13,21 +13,26 @@ body {
   font-size: 25px;
 }
 
+.button {
+  min-width: 200px;
+}
+
 #add-mins {
   border: none;
   color: white;
-  background-color: black;
-  font-size: 16px;
+  background-color: rgb(69, 151, 186);
+  font-size: 14px;
   display: inline-block;
   padding: 15px 32px;
+  max-width: 100px;
   font-family: "Courier Prime", monospace;
 }
 
 #remove-mins {
   border: none;
   color: white;
-  background-color: rgb(216, 145, 138);
-  font-size: 16px;
+  background-color: #da9132;
+  font-size: 14px;
   display: inline-block;
   padding: 15px 32px;
   font-family: "Courier Prime", monospace;
@@ -36,8 +41,8 @@ body {
 #done {
   border: none;
   color: white;
-  background-color: rgb(136, 241, 153);
-  font-size: 16px;
+  background-color: rgba(222, 241, 136, 0.763);
+  font-size: 14px;
   display: inline-block;
   padding: 15px 32px;
   font-family: "Courier Prime", monospace;
@@ -46,8 +51,31 @@ body {
 #start {
   border: none;
   color: white;
-  background-color: rgb(222, 241, 136);
-  font-size: 16px;
+  background-color: rgba(102, 191, 117, 0.694);
+  font-size: 14px;
   display: inline-block;
   padding: 15px 32px;
+}
+
+#restart {
+  border: none;
+  color: white;
+  background-color: rgb(227, 145, 224);
+  font-size: 14px;
+  display: inline-block;
+  padding: 15px 32px;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 8px;
+}
+
+#title {
+  font-size: 3.5vh;
 }

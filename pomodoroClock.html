@@ -13,20 +13,31 @@
     <title>Pomodoro Clock</title>
   </head>
   <body onload="startTimer()">
-    <div>
-      <h1 id="title">Pomodoro Clock</h1>
-    </div>
-    <div id="timer">
+    <div id="info-container">
       <div>
-        <span id="timer-mins" class="countdown"></span>
-        :
-        <span id="timer-secs" class="countdown"></span>
+        <h1 id="title">Pomodoro Clock</h1>
       </div>
+      <div id="timer">
+        <div>
+          <span id="timer-mins" class="countdown"></span>
+          :
+          <span id="timer-secs" class="countdown"></span>
+        </div>
+      </div>
+      <p id="paused"></p>
     </div>
-    <p id="paused"></p>
-    <button id="add-mins" onclick="addOneMinute()">Another minute?</button>
-    <button id="remove-mins" onclick="removeOneMinute()">Decrease?</button>
-    <button id="done" onclick="pauseTimer()">Pause?</button>
-    <button id="start" onclick="startTimer()">Start?</button>
+    <div id="container">
+      <button class="button" id="add-mins" onclick="addOneMinute()">
+        Another minute
+      </button>
+      <button class="button" id="remove-mins" onclick="removeOneMinute()">
+        Decrease
+      </button>
+      <button class="button" id="done" onclick="pauseTimer()">Pause</button>
+      <button class="button" id="start" onclick="startTimer()">Start</button>
+      <button class="button" id="restart" onclick="restartTimer()">
+        Restart
+      </button>
+    </div>
   </body>
 </html>
